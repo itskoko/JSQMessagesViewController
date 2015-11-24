@@ -58,6 +58,20 @@
     return self;
 }
 
+- (instancetype)initWithSenderId:(NSString *)senderId
+               senderDisplayName:(NSString *)senderDisplayName
+                            date:(NSDate *)date
+                  attributedText:(NSString *)attributedText
+{
+    NSParameterAssert(attributedText != nil);
+
+    self = [self initWithSenderId:senderId senderDisplayName:senderDisplayName date:date isMedia:NO];
+    if (self) {
+        _attributedText = [attributedText copy];
+    }
+    return self;
+}
+
 + (instancetype)messageWithSenderId:(NSString *)senderId
                         displayName:(NSString *)displayName
                               media:(id<JSQMessageMediaData>)media

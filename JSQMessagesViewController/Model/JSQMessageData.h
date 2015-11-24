@@ -91,6 +91,13 @@
 - (NSString *)text;
 
 /**
+ *  @return The attributed body text of the message.
+ *
+ *  @warning You must not return `nil` from this method.
+ */
+- (NSAttributedString *)attributedText;
+
+/**
  *  @return The media item of the message.
  *  
  *  @warning You must not return `nil` from this method.

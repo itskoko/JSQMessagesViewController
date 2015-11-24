@@ -58,6 +58,12 @@
 @property (copy, nonatomic, readonly) NSString *text;
 
 /**
+ *  Returns the attributed body text of the message, or `nil` if the message is a media message.
+ *  That is, if `isMediaMessage` is equal to `YES` then this value will be `nil`.
+ */
+@property (copy, nonatomic, readonly) NSAttributedString *attributedText;
+
+/**
  *  Returns the media item attachment of the message, or `nil` if the message is not a media message.
  *  That is, if `isMediaMessage` is equal to `NO` then this value will be `nil`.
  */
@@ -98,6 +104,12 @@
                senderDisplayName:(NSString *)senderDisplayName
                             date:(NSDate *)date
                             text:(NSString *)text;
+
+- (instancetype)initWithSenderId:(NSString *)senderId
+               senderDisplayName:(NSString *)senderDisplayName
+                            date:(NSDate *)date
+                  attributedText:(NSAttributedString *)attributedText;
+
 /**
  *  Initializes and returns a message object having the given senderId, displayName, media,
  *  and current system date.
